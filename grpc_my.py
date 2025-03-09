@@ -13,6 +13,7 @@ from torchvision import transforms
 
 import inference_pb2
 import inference_pb2_grpc
+import grpc
 
 logging.basicConfig(level=logging.INFO)
 
@@ -69,7 +70,7 @@ class InstanceDetectorServicer(inference_pb2_grpc.InstanceDetectorServicer):
         return inference_pb2.InstanceDetectorOutput(objects=detected)
 
 
-def serve():
+def start():
     server = grpc.server(ThreadPoolExecutor(max_workers=10))
     inference_pb2_grpc.add_InstanceDetectorServicer_to_server(InstanceDetectorServicer(), server)
     listen_addr = "[::]:9090"
@@ -85,4 +86,4 @@ def serve():
 
 
 if __name__ == '__main__':
-    serve()
+    start()
