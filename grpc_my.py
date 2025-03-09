@@ -73,8 +73,8 @@ class InstanceDetectorServicer(inference_pb2_grpc.InstanceDetectorServicer):
 def start():
     server = grpc.server(ThreadPoolExecutor(max_workers=10))
     inference_pb2_grpc.add_InstanceDetectorServicer_to_server(InstanceDetectorServicer(), server)
-    addr = "[::]:9090"
-    # addr = "0.0.0.0:9090"
+    # addr = "[::]:9090"
+    addr = "0.0.0.0:9090"
 
     server.add_insecure_port(addr)
     server.start()
