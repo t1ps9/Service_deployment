@@ -79,12 +79,13 @@ def start():
     server.add_insecure_port(addr)
     server.start()
     logging.info("gRPC сервер запущен и слушает %s", addr)
-    try:
-        while True:
-            time.sleep(60)
-    except KeyboardInterrupt:
-        logging.info("Останавливаем gRPC сервер")
-        server.stop(0)
+    server.wait_for_termination()
+    # try:
+    #     while True:
+    #         time.sleep(60)
+    # except KeyboardInterrupt:
+    #     logging.info("Останавливаем gRPC сервер")
+    #     server.stop(0)
 
 
 if __name__ == '__main__':
