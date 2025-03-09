@@ -22,8 +22,8 @@ def predict():
 
     image_url = data['url']
     try:
-        chan = grpc.insecure_channel('localhost:9090')
-        prot = inference_pb2_grpc.InstanceDetectorStub(chan)
+        # chan = grpc.insecure_channel('localhost:9090')
+        # prot = inference_pb2_grpc.InstanceDetectorStub(chan)
         grpc_request = inference_pb2.InstanceDetectorInput(url=image_url)
         grpc_response = prot.Predict(grpc_request)
         detected_objects = list(grpc_response.objects)
