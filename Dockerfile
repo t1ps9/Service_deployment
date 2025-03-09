@@ -1,14 +1,5 @@
 FROM python:3.10
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    libglib2.0-0 \
-    libsm6 \
-    libxext6 \
-    libxrender-dev \
-    supervisor \
- && rm -rf /var/lib/apt/lists/*
-
 WORKDIR /app
 
 COPY requirements.txt /app/requirements.txt
