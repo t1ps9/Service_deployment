@@ -34,7 +34,7 @@ def predict():
     return jsonify({'objects': detected_objects})
 
 
-@app.route('/metrics')
+@app.route('/metrics', methods=['GET'])
 def metrics():
     return Response(generate_latest(), mimetype=CONTENT_TYPE_LATEST)
 
