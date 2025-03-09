@@ -1,4 +1,5 @@
 #!/bin/bash
-python task1_app.py &
 python grpc_my.py &
+sleep 5
+python task1_app.py &
 wait
