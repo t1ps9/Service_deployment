@@ -20,6 +20,6 @@ requests==2.32.3
 setuptools==75.9.1
 six==1.17.0
 sympy==1.13.3
-torch>=2.2.2
-torchvision==0.17.2
+torch>=2.0.0
+torchvision>=0.15.0
 
