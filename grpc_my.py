@@ -73,10 +73,12 @@ class InstanceDetectorServicer(inference_pb2_grpc.InstanceDetectorServicer):
 def start():
     server = grpc.server(ThreadPoolExecutor(max_workers=10))
     inference_pb2_grpc.add_InstanceDetectorServicer_to_server(InstanceDetectorServicer(), server)
-    listen_addr = "[::]:9090"
-    server.add_insecure_port(listen_addr)
+    # addr = "[::]:9090"
+    addr = "0.0.0.0:9090"
+
+    server.add_insecure_port(addr)
     server.start()
-    logging.info("gRPC сервер запущен и слушает %s", listen_addr)
+    logging.info("gRPC сервер запущен и слушает %s", addr)
     try:
         while True:
             time.sleep(60)
