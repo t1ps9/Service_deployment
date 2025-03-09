@@ -62,7 +62,7 @@ class InstanceDetectorServicer(inference_pb2_grpc.InstanceDetectorServicer):
             image_tensor = prepare_image(url)
         except ValueError as err:
             context.set_details(str(err))
-            context.set_code(grpc_server.StatusCode.INVALID_ARGUMENT)
+            context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
             return inference_pb2.InstanceDetectorOutput(objects=[])
 
         detected = infer(image_tensor)

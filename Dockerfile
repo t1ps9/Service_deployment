@@ -20,5 +20,7 @@ COPY . /app
 
 EXPOSE 8080
 EXPOSE 9090
+RUN chmod +x /app/start.sh
 
-CMD ["supervisord", "-c", "/app/supervisord.conf"]
+
+CMD ["sh", "start.sh"]
